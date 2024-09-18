@@ -1,4 +1,5 @@
-FROM node:18.20.4-alpine
+FROM app-node-curso-devops
+#FROM node:18.20.4-alpine
 
 ENV http_proxy=http://10.10.254.219:3128
 ENV https_proxy=http://10.10.254.219:3128
