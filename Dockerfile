@@ -15,7 +15,7 @@ ADD package.json package-lock.json /app/
 
 RUN npm config set proxy http://10.10.254.219:3128
 
-npm config set https-proxy http://10.10.254.219:3128
+RUN npm config set https-proxy http://10.10.254.219:3128
 
 RUN npm install
 
