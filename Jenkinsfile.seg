@@ -33,7 +33,10 @@ pipeline {
       }
    stage('Vulnerability Scan - Docker ') {
         steps {
-          sh "docker run  -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --severity=MEDIUM 127.0.0.1:5000/mguazzardo/testapp"
+          sh "docker run \
+            -e HTTP_PROXY=http://10.10.254.219:3128 \
+            -e HTTPS_PROXY=http://10.10.254.219:3128 \
+            -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --severity=MEDIUM 127.0.0.1:5000/mguazzardo/testapp"
             }
         }
     }
